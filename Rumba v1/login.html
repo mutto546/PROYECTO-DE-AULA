@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Rumba</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-wrapper">
+                <img class="logo-img" src="logo.png" alt="Rumba">
+            </div>
+
+            <h2>Bienvenido de vuelta</h2>
+
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Nombre de usuario" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña">
+            </div>
+
+            <button class="btn-login" onclick="login()">Iniciar Sesión</button>
+            <button class="btn-register" onclick="register()">Crear nueva cuenta</button>
+
+            <div class="divider">
+                <span>Acceso rápido</span>
+            </div>
+
+            <div class="info-text">
+                <strong>Usuario demo:</strong> admin / admin123
+            </div>
+
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="Java/app.js"></script>
+</body>
+
+</html>

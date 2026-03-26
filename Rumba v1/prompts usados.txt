@@ -1,0 +1,42 @@
+- vamos a crear una página web en html y css puro de un sistema de productores para almacenar sus beats con posibilidad de guardar el nombre del beat, el género, la tonalidad, el bpm, y en diferentes estados (disponible, cedido con licencia exclusiva y asi), necesito solo como el landing page y que me aterrices la idea de lo que quiero hacer, es como un beatstars pero local para organizar para productores musicales, el almacenar beats no tiene que ser la unica funcionalidad, es más, antes de desarrollar, qué se te ocurre o como me ayudas con la idea y que puede hacer
+
+Claude:
+¡Qué proyecto tan interesante, Brayan! Antes de ponernos a codear, déjame aterrizar la idea contigo y expandirla, porque hay bastante potencial aquí.
+La visión es básicamente un CRM para productores musicales — como BeatStars pero corriendo local, sin comisiones ni dependencia de internet. Un lugar donde un productor organiza todo su catálogo, su negocio y su flujo de trabajo.
+Más allá del almacenamiento de beats, acá te doy lo que se me ocurre que podría hacer la plataforma:
+Catálogo de beats — lo que ya mencionaste: nombre, género, tonalidad, BPM, estado (disponible, cedido exclusivo, cedido no-exclusivo, retirado, en negociación). Pero también podrías agregar etiquetas/mood, precio sugerido, archivos adjuntos (MP3 preview, WAV master, stems), y fecha de creación.
+Gestión de clientes/artistas — un registro de quién te ha comprado qué, datos de contacto, historial de transacciones. Muy útil para saber qué tipo de beat le gusta a cada cliente.
+Contratos y licencias — plantillas de licencias (no-exclusiva, exclusiva, libre de regalías), con la posibilidad de generar un PDF de contrato básico para cada venta. Muchos productores pierden dinero por no tener esto documentado.
+Dashboard de ingresos — registrar ventas, ver qué géneros generan más plata, qué beats han vendido más licencias, métricas del mes.
+Packs y bundles — agrupar varios beats para vender como pack con descuento, útil para aumentar el ticket promedio.
+Notas internas — un espacio para escribir ideas, letras de referencia, notas sobre colaboraciones pendientes.
+
+
+- Arranquemos con el landing, la app se va a llamar Rumba, la paleta de colores quiero que sea rojo intenso con gris oscuro (el modo oscuro por default), la tipografía Inter (la extraes de google fonts la importas), me haces el index.html y aparte me haces el style.css, por ahora no vamos a trabajar con react para esta primera fase, solo este prototipo.
+
+Claude:
+(me entrega un index.html y style.css)
+
+Lo que incluye el landing:
+Diseño y estilo — modo oscuro total con #0C0C0D como base, rojo #DC2626 como acento, Inter importada desde Google Fonts en 5 pesos (300 al 900). Glow rojizo en el hero, partículas de ruido en el fondo, bordes sutiles en rgba.
+Hero — título grande en 900 weight, badge animado con el punto pulsando, tarjetas flotantes con animación float independiente por cada una (ingresos, beat nuevo, licencia). Stats de 0% comisión / 100% local / ∞ beats.
+Catálogo preview — tabla completa con play buttons, badges de estado coloreados (verde disponible, amarillo no-exclusiva, rojo exclusivo, morado negociación), filtros por pills y barra de búsqueda visual.
+Sección de features — grid de 6 cards, la de catálogo ocupa 2 columnas. La de "Tuyo, siempre" tiene borde rojo destacado.
+Estados de licencia — grid visual con dots de colores y glow para cada estado, incluyendo uno dashed de "+ Estado personalizado".
+CTA final — glow centrado, título bold, botón primario.
+Responsivo — se adapta a tablet y móvil, el hero se apila, la tabla oculta columnas extras.
+
+- estoy buscando que se vea más simple:
+que los botones no tengan animación de desplazamiento (que se suben cuando pasas el mouse por encima)
+la animación de las 3 cajitas moviéndose quitala
+la cajita del estado personalizado que tenga el mismo estilo que los otros
+
+el difuminado de los fondos rojos, dame el codigo de color especifico y yo mismo lo diseño así que reempláza el fondo de esos dos segmentos por backgroundimg1.png backgroundimg2.png y yo voy a diseñar esos fondos
+
+petición especial: el logo de Rumba yo mismo lo haré así que reemplaza el texto Rumba del nav por "logo.png" que yo mismo diseñaré, que sea una imagen con hipervínculo al inicio de la página, me especifícas la resolución que debe tener esa imagen, haré los fondos en 16:9 pero trata de que los segmentos no cambien de tamaño, debe haber una propiedad para que la imagen de "backgroundimg1 y 2.png" se ajuste o se expanda sin importar el espacio o el width que le des
+
+todo estas instrucciones te las doy con el fin que la página no tenga tanto vibecoding y que sea algo que podría implementar yo mismo, el style que esté lo máximo optimizado posible y documentado por secciones (<- style de los botones ->), la documentación del html que sea solo lo necesario
+
+
+
+

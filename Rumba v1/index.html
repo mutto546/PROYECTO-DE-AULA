@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rumba</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <img class="logo-img" src="logo.png" alt="Rumba" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#demo">Vista Previa</a></li>
+      <li><a href="#features">Funciones</a></li>
+      <li><a href="#states">Flujo</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta">Ingresar</a>
+    <button class="nav-hamburger" aria-label="Menú">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Para productores musicales</span>
+      </div>
+
+      <h1 class="hero-title">
+        Tu catálogo.<br />
+        Tu negocio.<br />
+        <em>Tu Rumba.</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Organiza tus proyectos musicales, gestiona licencias, registra clientes
+        y rastrea ingresos. Sin formularios, sin fricción, sin plataformas externas.
+      </p>
+
+      <div class="hero-actions">
+        <a href="login.html" class="btn-primary">
+          <span>Crear mi Rumba</span>
+          <img src="https://img.icons8.com/material/16/FFFFFF/chevron-right.png" alt=""
+            style="width:16px;height:16px;" />
+        </a>
+        <a href="#demo" class="btn-ghost">Ver demo</a>
+      </div>
+
+
+    </div>
+
+    <!-- nuevas tarjetas hero -->
+    <div class="hero-visual">
+
+      <div class="card-float card-1">
+        <div class="label-eyebrow">Producción</div>
+        <div class="card-beat-name">Playa</div>
+        <div class="flex-row-wrap">
+          <span class="tag tag-genre">Afrobeat</span>
+          <span class="tag tag-bpm">100 BPM</span>
+        </div>
+        <div class="card-status status-available">● Disponible</div>
+      </div>
+
+      <div class="card-float card-2">
+        <div class="label-eyebrow">Mix & Master</div>
+        <div class="card-beat-name">Modo Avión</div>
+        <div class="card-client">Artista: @brayandeaviila</div>
+        <div class="card-status status-licensed">● En progreso</div>
+      </div>
+
+      <div class="card-float card-3">
+        <div class="label-eyebrow">Ingresos del mes</div>
+        <div class="card-stat-num">$3.500.000</div>
+        <div class="card-stat-bar">
+          <div class="bar-fill"></div>
+        </div>
+        <div class="card-stat-sub">+120% vs mes anterior</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VISTA PREVIA -->
+  <!-- Demostracion (nada funcional) -->
+  <section class="catalog-section" id="demo">
+    <div class="section-header">
+      <p class="label-eyebrow">Vista previa</p>
+      <h2 class="section-title">Un día de trabajo, organizado</h2>
+      <p class="section-desc">Así se ve el tablero de un productor real. Cada proyecto con su tipo, artista y estado
+        actual.</p>
+    </div>
+
+    <div class="catalog-toolbar">
+      <div class="search-bar">
+        <img src="https://img.icons8.com/material/14/A1A1AA/search--v1.png" alt="" style="width:14px;height:14px;" />
+        <span>Buscar proyecto o artista...</span>
+      </div>
+      <div class="filter-pills">
+        <button class="pill pill-active">Todos</button>
+        <button class="pill">Producción</button>
+        <button class="pill">Mix & Master</button>
+        <button class="pill">Composición</button>
+        <button class="pill">Urgentes</button>
+      </div>
+      <!-- funcionlidad estrella  -->
+      <button class="btn-add">
+        <img src="https://img.icons8.com/material/14/FFFFFF/plus-math--v1.png" alt="" style="width:14px;height:14px;" />
+        Nuevo proyecto
+        <span class="kbd">Ctrl+N</span>
+      </button>
+    </div>
+
+    <!-- tabla ejemplo catálogo -->
+    <div class="catalog-table">
+      <div class="table-head">
+        <span>Proyecto</span>
+        <span>Tipo</span>
+        <span>Artista</span>
+        <span>Entrega</span>
+        <span>Estado</span>
+        <span>Pago</span>
+      </div>
+
+      <!-- ejemplo proyecto urgente -->
+      <div class="table-row">
+        <div class="beat-info">
+          <button class="play-btn" aria-label="Ver">
+            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
+          </button>
+          <div>
+            <div class="text-bold-sm">Beats para Jerry Di <span class="badge-urgent">Urgente</span></div>
+            <div class="text-xs-muted beat-sub">creado hace 1 día</div>
+          </div>
+        </div>
+        <span class="cell-muted">Producción</span>
+        <span class="cell-muted">Jerry Di</span>
+        <span class="cell-muted">Hoy</span>
+        <span><span class="status-badge negotiation">En progreso</span></span>
+        <span class="cell-cash">$1'000.000</span>
+      </div>
+
+      <!-- ejemplo proyecto mezcla master -->
+      <div class="table-row">
+        <div class="beat-info">
+          <button class="play-btn" aria-label="Ver">
+            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
+          </button>
+          <div>
+            <div class="text-bold-sm">Mix Estelar <span class="badge-ep">EP Mizar</span></div>
+            <div class="text-xs-muted beat-sub">creado hace 3 días</div>
+          </div>
+        </div>
+        <span class="cell-muted">Mix & Master</span>
+        <span class="cell-muted">MIZ4R</span>
+        <span class="text-bold-sm">Viernes</span>
+        <span><span class="status-badge negotiation">En progreso</span></span>
+        <span class="cell-actions"><button class="action-btn">···</button></span>
+      </div>
+
+      <!-- ejemplo proyecto composición -->
+      <div class="table-row">
+        <div class="beat-info">
+          <button class="play-btn" aria-label="Ver">
+            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
+          </button>
+          <div>
+            <div class="text-bold-sm">Sesión con Nash</div>
+            <div class="text-xs-muted beat-sub">creado hace 5 días</div>
+          </div>
+        </div>
+        <span class="cell-muted">Composición</span>
+        <span class="cell-muted">Nash</span>
+        <span class="text-bold-sm">—</span>
+        <span><span class="status-badge available">Pendiente</span></span>
+        <span class="cell-actions"><button class="action-btn">···</button></span>
+      </div>
+
+      <!-- ejemplo proyecto grabación -->
+      <div class="table-row">
+        <div class="beat-info">
+          <button class="play-btn" aria-label="Ver">
+            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
+          </button>
+          <div>
+            <div class="text-bold-sm">Grabar Voces 'Tus Fotos' <span class="badge-ep">EP Mizar</span></div>
+            <div class="text-xs-muted beat-sub">creado hace 1 semana</div>
+          </div>
+        </div>
+        <span class="cell-muted">Grabación</span>
+        <span class="cell-muted">Ze7ian</span>
+        <span class="text-bold-sm">Próx. semana</span>
+        <span><span class="status-badge available">Pendiente</span></span>
+        <span class="cell-actions"><button class="action-btn">···</button></span>
+      </div>
+
+      <!-- entregado -->
+      <div class="table-row">
+        <div class="beat-info">
+          <button class="play-btn" aria-label="Ver">
+            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
+          </button>
+          <div>
+            <div class="text-bold-sm">Re-Producir 'La Carta'</div>
+            <div class="text-xs-muted beat-sub">entregado hace 2 días</div>
+          </div>
+        </div>
+        <span class="cell-muted">Producción</span>
+        <span class="cell-muted">Rome & Andy</span>
+        <span class="text-bold-sm">Entregado</span>
+        <span><span class="status-badge licensed">Completado</span></span>
+        <span class="cell-actions"><button class="action-btn">···</button></span>
+      </div>
+
+    </div>
+
+    <div class="catalog-footer">
+      <span class="text-xs-muted">5 de 19 proyectos mostrados</span>
+      <a href="#" class="link-more">Ver todos los proyectos →</a>
+    </div>
+  </section>
+
+  <!-- funcionalidades -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <p class="label-eyebrow">Funcionalidades</p>
+      <h2 class="section-title">Diseñado para el flujo<br />de un productor real</h2>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- control n -->
+      <div class="feat-card feat-large">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.12);">
+          <img src="https://img.icons8.com/material/22/DC2626/lightning-bolt--v1.png" alt=""
+            style="width:22px;height:22px;" />
+        </div>
+        <h3>Crea tu Rumba sin formularios</h3>
+        <p>Presiona <strong>Ctrl+N</strong> desde cualquier pantalla. Escribe el nombre del proyecto, elige el tipo con
+          un clic y presiona Enter. Menos de 5 segundos. Tan rápido como escribir en una nota, pero organizado.</p>
+        <div class="flex-row-wrap feat-tag-row">
+          <span class="ftag">Atajos</span>
+        </div>
+      </div>
+
+      <!-- 6 tipos de tarea -->
+      <div class="feat-card">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.08);">
+          <img src="https://img.icons8.com/material/20/DC2626/web-design--v1.png" alt=""
+            style="width:20px;height:20px;" />
+        </div>
+        <h3>6 tipos de proyecto</h3>
+        <p>Producción, Mix & Master, Composición, Grabación, Edición y Colaboración. Cada tipo tiene su propio flujo de
+          estados.</p>
+      </div>
+
+      <!-- agrupación por EP o Album -->
+      <div class="feat-card">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.08);">
+          <img src="https://img.icons8.com/material/20/DC2626/stack-of-paper--v1.png" alt=""
+            style="width:20px;height:20px;" />
+        </div>
+        <h3>EPs y álbumes agrupados</h3>
+        <p>Etiqueta proyectos con un EP o álbum y Rumba los agrupa automáticamente. Ve el progreso de todo el proyecto
+          en una vista.</p>
+      </div>
+
+      <!-- clientes -->
+      <div class="feat-card">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.08);">
+          <img src="https://img.icons8.com/material/20/DC2626/conference-call--v1.png" alt=""
+            style="width:20px;height:20px;" />
+        </div>
+        <h3>Registro de artistas</h3>
+        <p>Historial de proyectos por artista, notas de cada colaboración y datos de contacto. Todo el contexto en un
+          lugar.</p>
+      </div>
+
+      <!-- licencias -->
+      <div class="feat-card">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.08);">
+          <img src="https://img.icons8.com/material/20/DC2626/google-docs--v1.png" alt=""
+            style="width:20px;height:20px;" />
+        </div>
+        <h3>Contratos y licencias</h3>
+        <p>Genera PDFs de contrato con plantillas de licencia exclusiva, no-exclusiva y libre de regalías desde cada
+          proyecto.</p>
+      </div>
+
+      <!-- local (aún está por replantearse) -->
+      <div class="feat-card feat-highlight">
+        <div class="feat-icon-wrap" style="background:rgba(220,38,38,0.15);">
+          <img src="https://img.icons8.com/material/20/DC2626/star--v1.png" alt="" style="width:20px;height:20px;" />
+        </div>
+        <h3>Tuyo, siempre</h3>
+        <p>Cero comisiones. Cero suscripciones. Corre en tu máquina, sin depender de ningún servidor externo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESTADOS DEL FLUJO DE TRABAJO -->
+  <section class="states-section" id="states">
+    <div class="section-header">
+      <p class="label-eyebrow">Flujo de trabajo</p>
+      <h2 class="section-title">Cada proyecto en su estado exacto</h2>
+    </div>
+    <div class="states-grid">
+      <div class="state-card">
+        <div class="state-dot dot-available"></div>
+        <div class="state-name">Pendiente</div>
+        <div class="text-xs-muted">En la lista, aún sin empezar.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-dot dot-negotiation"></div>
+        <div class="state-name">En progreso</div>
+        <div class="text-xs-muted">Actualmente trabajando en él.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-dot dot-licensed"></div>
+        <div class="state-name">En revisión</div>
+        <div class="text-xs-muted">Enviado al artista, esperando feedback.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-dot dot-exclusive"></div>
+        <div class="state-name">Completado</div>
+        <div class="text-xs-muted">Entregado y cerrado.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-dot dot-retired"></div>
+        <div class="state-name">Archivado</div>
+        <div class="text-xs-muted">Fuera del flujo activo. Guardado.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-dot dot-custom"></div>
+        <div class="state-name">+ Estado personalizado</div>
+        <div class="text-xs-muted">Crea los estados que tu flujo necesite.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <p class="label-eyebrow">¿Cansado de las notas?</p>
+      <h2 class="cta-title">Tu estudio merece<br /><em>mejor organización.</em></h2>
+      <p class="cta-desc">Gratis. Local. Sin registro. Solo abre el archivo y listo.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary btn-large">
+          <span>Abrir Rumba</span>
+          <img src="https://img.icons8.com/material/16/FFFFFF/chevron-right.png" alt=""
+            style="width:16px;height:16px;" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="#" class="footer-logo">
+      <img class="logo-img" src="logo.png" alt="Rumba" />
+    </a>
+    <p class="footer-tagline">Hecho para productores. Por productores.</p>
+    <p class="footer-copy">© 2026 Rumba - Tu estudio, organizado.</p>
+  </footer>
+
+</body>
+
+</html>
