@@ -23,10 +23,8 @@
       <li><a href="#features">Funciones</a></li>
       <li><a href="#states">Flujo</a></li>
     </ul>
-    <!-- <a href="login.html" class="nav-cta">Ingresar</a> -->
-    <a onclick="logout()" class="nav-cta">Cerrar sesión</a>
+    <a href="login.html" class="nav-cta">Ingresar</a>
     <button class="nav-hamburger" aria-label="Menú">&#9776;</button>
-
   </nav>
 
   <!-- HERO -->
@@ -57,7 +55,6 @@
         </a>
         <a href="#demo" class="btn-ghost">Ver demo</a>
       </div>
-
 
     </div>
 
@@ -94,7 +91,7 @@
   </section>
 
   <!-- VISTA PREVIA -->
-  <!-- Demostracion (nada funcional) -->
+  <!-- Demostracion — funcional via demo.js -->
   <section class="catalog-section" id="demo">
     <div class="section-header">
       <p class="label-eyebrow">Vista previa</p>
@@ -106,17 +103,20 @@
     <div class="catalog-toolbar">
       <div class="search-bar">
         <img src="https://img.icons8.com/material/14/A1A1AA/search--v1.png" alt="" style="width:14px;height:14px;" />
-        <span>Buscar proyecto o artista...</span>
+        <!-- Búsqueda en tiempo real -->
+        <input id="input-buscar" type="text" placeholder="Buscar proyecto o artista..."
+          style="background:none;border:none;outline:none;color:var(--text-primary);font-family:Inter,sans-serif;font-size:13px;width:100%;" />
       </div>
       <div class="filter-pills">
-        <button class="pill pill-active">Todos</button>
-        <button class="pill">Producción</button>
-        <button class="pill">Mix & Master</button>
-        <button class="pill">Composición</button>
-        <button class="pill">Urgentes</button>
+        <!-- Los filtros llaman a filtrar() en demo.js -->
+        <button class="pill pill-active" onclick="filtrar('Todos', this)">Todos</button>
+        <button class="pill" onclick="filtrar('Producción', this)">Producción</button>
+        <button class="pill" onclick="filtrar('Mix & Master', this)">Mix & Master</button>
+        <button class="pill" onclick="filtrar('Composición', this)">Composición</button>
+        <button class="pill" onclick="filtrar('Urgentes', this)">Urgentes</button>
       </div>
-      <!-- funcionlidad estrella  -->
-      <button class="btn-add">
+      <!-- funcionlidad estrella — abre modal -->
+      <button class="btn-add" id="btn-nuevo">
         <img src="https://img.icons8.com/material/14/FFFFFF/plus-math--v1.png" alt="" style="width:14px;height:14px;" />
         Nuevo proyecto
         <span class="kbd">Ctrl+N</span>
@@ -133,104 +133,95 @@
         <span>Estado</span>
         <span>Pago</span>
       </div>
-
-      <!-- ejemplo proyecto urgente -->
-      <div class="table-row">
-        <div class="beat-info">
-          <button class="play-btn" aria-label="Ver">
-            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
-          <div>
-            <div class="text-bold-sm">Beats para Jerry Di <span class="badge-urgent">Urgente</span></div>
-            <div class="text-xs-muted beat-sub">creado hace 1 día</div>
-          </div>
-        </div>
-        <span class="cell-muted">Producción</span>
-        <span class="cell-muted">Jerry Di</span>
-        <span class="cell-muted">Hoy</span>
-        <span><span class="status-badge negotiation">En progreso</span></span>
-        <span class="cell-cash">$1'000.000</span>
-      </div>
-
-      <!-- ejemplo proyecto mezcla master -->
-      <div class="table-row">
-        <div class="beat-info">
-          <button class="play-btn" aria-label="Ver">
-            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
-          <div>
-            <div class="text-bold-sm">Mix Estelar <span class="badge-ep">EP Mizar</span></div>
-            <div class="text-xs-muted beat-sub">creado hace 3 días</div>
-          </div>
-        </div>
-        <span class="cell-muted">Mix & Master</span>
-        <span class="cell-muted">MIZ4R</span>
-        <span class="text-bold-sm">Viernes</span>
-        <span><span class="status-badge negotiation">En progreso</span></span>
-        <span class="cell-actions"><button class="action-btn">···</button></span>
-      </div>
-
-      <!-- ejemplo proyecto composición -->
-      <div class="table-row">
-        <div class="beat-info">
-          <button class="play-btn" aria-label="Ver">
-            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
-          <div>
-            <div class="text-bold-sm">Sesión con Nash</div>
-            <div class="text-xs-muted beat-sub">creado hace 5 días</div>
-          </div>
-        </div>
-        <span class="cell-muted">Composición</span>
-        <span class="cell-muted">Nash</span>
-        <span class="text-bold-sm">—</span>
-        <span><span class="status-badge available">Pendiente</span></span>
-        <span class="cell-actions"><button class="action-btn">···</button></span>
-      </div>
-
-      <!-- ejemplo proyecto grabación -->
-      <div class="table-row">
-        <div class="beat-info">
-          <button class="play-btn" aria-label="Ver">
-            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
-          <div>
-            <div class="text-bold-sm">Grabar Voces 'Tus Fotos' <span class="badge-ep">EP Mizar</span></div>
-            <div class="text-xs-muted beat-sub">creado hace 1 semana</div>
-          </div>
-        </div>
-        <span class="cell-muted">Grabación</span>
-        <span class="cell-muted">Ze7ian</span>
-        <span class="text-bold-sm">Próx. semana</span>
-        <span><span class="status-badge available">Pendiente</span></span>
-        <span class="cell-actions"><button class="action-btn">···</button></span>
-      </div>
-
-      <!-- entregado -->
-      <div class="table-row">
-        <div class="beat-info">
-          <button class="play-btn" aria-label="Ver">
-            <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
-          <div>
-            <div class="text-bold-sm">Re-Producir 'La Carta'</div>
-            <div class="text-xs-muted beat-sub">entregado hace 2 días</div>
-          </div>
-        </div>
-        <span class="cell-muted">Producción</span>
-        <span class="cell-muted">Rome & Andy</span>
-        <span class="text-bold-sm">Entregado</span>
-        <span><span class="status-badge licensed">Completado</span></span>
-        <span class="cell-actions"><button class="action-btn">···</button></span>
-      </div>
-
+      <!-- Las filas las genera demo.js -->
+      <div id="tabla-body"></div>
     </div>
 
     <div class="catalog-footer">
-      <span class="text-xs-muted">5 de 19 proyectos mostrados</span>
+      <span class="text-xs-muted" id="contador">Cargando...</span>
       <a href="#" class="link-more">Ver todos los proyectos →</a>
     </div>
   </section>
+
+  <!-- MODAL NUEVO / EDITAR PROYECTO -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-titulo">Creando un proyecto...</span>
+        <button class="modal-close" id="modal-cerrar">✕</button>
+      </div>
+
+      <div class="modal-field">
+        <label class="modal-label">Nombre de la Rumba</label>
+        <input class="modal-input" id="campo-nombre" type="text" placeholder="Ej: Mix Estelar" />
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label class="modal-label">Tipo</label>
+          <select class="modal-select" id="campo-tipo">
+            <option value="Producción">Producción</option>
+            <option value="Mix & Master">Mix & Master</option>
+            <option value="Composición">Composición</option>
+            <option value="Grabación">Grabación</option>
+            <option value="Edición">Edición</option>
+            <option value="Colaboración">Colaboración</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Estado</label>
+          <select class="modal-select" id="campo-estado">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En progreso">En progreso</option>
+            <option value="En revisión">En revisión</option>
+            <option value="Completado">Completado</option>
+            <option value="Archivado">Archivado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label class="modal-label">Artista</label>
+          <input class="modal-input" id="campo-artista" type="text" placeholder="Ej: MIZ4R" />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Entrega</label>
+          <input class="modal-input" id="campo-entrega" type="text" placeholder="Ej: Viernes" />
+        </div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label class="modal-label">Pago (opcional)</label>
+          <input class="modal-input" id="campo-pago" type="text" placeholder="Ej: $500.000" />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">EP / Álbum (opcional)</label>
+          <input class="modal-input" id="campo-ep" type="text" placeholder="Ej: EP Mizar" />
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancel" id="btn-cancelar">Cancelar</button>
+        <button class="btn-primary" id="btn-guardar">
+          <span>Guardar proyecto</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú contextual de fila (editar / eliminar) -->
+  <div class="row-menu" id="row-menu">
+    <button class="row-menu-item" id="menu-editar">
+      <img src="https://img.icons8.com/material/14/A1A1AA/edit--v1.png" alt="" style="width:14px;height:14px;" />
+      Editar
+    </button>
+    <button class="row-menu-item danger" id="menu-eliminar">
+      <img src="https://img.icons8.com/material/14/F87171/trash--v1.png" alt="" style="width:14px;height:14px;" />
+      Eliminar
+    </button>
+  </div>
 
   <!-- funcionalidades -->
   <section class="features-section" id="features">
@@ -376,9 +367,7 @@
     <p class="footer-copy">© 2026 Rumba - Tu estudio, organizado.</p>
   </footer>
 
-
-  <script src="Java/index.js"></script>
-
+  <script src="Java/demo.js"></script>
 </body>
 
 </html>
