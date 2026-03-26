@@ -2,48 +2,66 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Rumba</title>
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="estilos/styles.css" />
+  <title>Página de Inicio de Sesión | Caged coder</title>
 </head>
 
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="logo-wrapper">
-                <img class="logo-img" src="logo.png" alt="Rumba">
-            </div>
-
-            <h2>Bienvenido de vuelta</h2>
-
-            <div class="input-group">
-                <input type="text" id="username" placeholder="Nombre de usuario" autocomplete="off">
-            </div>
-
-            <div class="input-group">
-                <input type="password" id="password" placeholder="Contraseña">
-            </div>
-
-            <button class="btn-login" onclick="login()">Iniciar Sesión</button>
-            <button class="btn-register" onclick="register()">Crear nueva cuenta</button>
-
-            <div class="divider">
-                <span>Acceso rápido</span>
-            </div>
-
-            <div class="info-text">
-                <strong>Usuario demo:</strong> admin / admin123
-            </div>
-
-            <div id="message" class="message"></div>
+  <div class="container" id="container">
+    <div class="form-container sign-up">
+      <form>
+        <h1>Crear Cuenta</h1>
+        <div class="social-icons">
+          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
+        <span>usa tu correo electrónico para registrarte</span>
+        <input type="text" placeholder="Nombre" />
+        <input type="email" placeholder="Correo electrónico" />
+        <input type="password" placeholder="Contraseña" />
+        <button>Registrarse</button>
+      </form>
     </div>
+    <div class="form-container sign-in">
+      <form>
+        <h1>Iniciar Sesión</h1>
+        <div class="social-icons">
+          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>usa tu correo electrónico y contraseña</span>
+        <input type="email" placeholder="Correo electrónico" />
+        <input type="password" placeholder="Contraseña" />
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <button>Entrar</button>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>¡Bienvenido de nuevo!</h1>
+          <p>Ingresa tus datos personales para usar todas las funciones del sitio</p>
+          <button class="hidden" id="login">Iniciar Sesión</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>¡Hola, Dj!</h1>
+          <p>
+            Regístrate con tus datos personales para usar todas las funciones del sitio
+          </p>
+          <button class="hidden" id="register">Registrarse</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="Java/app.js"></script>
+  <script src="Java/Login.js"></script>
 </body>
 
 </html>
