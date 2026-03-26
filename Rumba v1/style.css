@@ -1266,3 +1266,53 @@ ul {
     padding: 0 16px;
   }
 }
+/* =======================
+   Botón de audio
+   ======================= */
+.audio-btn {
+    background: #F87171;          /* color de fondo suave */
+    border: none;                 /* sin borde */
+    border-radius: 6px;           /* esquinas redondeadas */
+    padding: 6px;                 /* espacio interno */
+    cursor: pointer;              /* puntero al pasar */
+    display: inline-flex;         /* icono centrado */
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.audio-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.audio-btn:hover {
+    background: #EF4444;         
+}
+
+.audio-btn.playing {
+    background: #34D399;         
+}
+
+/* =======================
+   Botón de seleccionar archivo
+   ======================= */
+input[type="file"] {
+    display: none;               
+}
+
+.custom-file-btn {
+    background: #3B82F6;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.custom-file-btn:hover {
+    background: #2563EB;          
+}

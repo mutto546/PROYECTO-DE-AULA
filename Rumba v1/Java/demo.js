@@ -70,6 +70,9 @@ const DATOS_INICIALES = [
 
 // --- ESTADO DE LA APP ---
 let proyectos = [];         // array principal en memoria
+let audioActivo = null;
+let btnActivo = null;
+let audioObjeto = null;
 let filtroActivo = 'Todos'; // filtro de pill activo
 let idEditando = null;      // null = nuevo, número = editar
 let idMenuAbierto = null;   // id del proyecto con menú abierto
@@ -147,6 +150,14 @@ function renderTabla(lista) {
             ? `<span class="badge-urgent">Urgente</span>`
             : '';
 
+        const audioBtn = p.audio
+            ? `<button class="audio-btn" data-audio="${p.audio}">
+                <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" 
+                    alt="Reproducir" 
+                    style="width:20px;height:20px;">
+            </button>`
+            : '';
+
         // Columna pago
         const colPago = p.pago
             ? `<span class="cell-cash">${p.pago}</span>`
@@ -157,7 +168,8 @@ function renderTabla(lista) {
         <div class="beat-info">
           <button class="play-btn" aria-label="Ver">
             <img src="https://img.icons8.com/material/10/F87171/music--v1.png" alt="" style="width:10px;height:10px;" />
-          </button>
+           </button>
+            ${audioBtn}
           <div>
             <div class="text-bold-sm">${p.nombre}${badgeUrgente}${badgeEp}</div>
             <div class="text-xs-muted beat-sub">${tiempoRelativo(p.creadoEn)}</div>
@@ -183,6 +195,48 @@ function renderTabla(lista) {
             e.stopPropagation();
             abrirMenu(e, parseInt(fila.dataset.id));
         });
+    // escuchar audio(solo podmos reproducir detener)
+
+        fila.querySelectorAll('.audio-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const srcAudio = btn.dataset.audio;
+        if (!srcAudio) return;
+
+        const img = btn.querySelector('img');
+        const playIcon = "https://cdn-icons-png.flaticon.com/512/727/727245.png"; // icono play
+        const pauseIcon = "https://cdn-icons-png.flaticon.com/512/727/727241.png"; // tu icono pausa
+
+        // Si este botón ya está reproduciendo → pausar
+        if (audioActivo === srcAudio && btnActivo === btn && !audioObjeto.paused) {
+            audioObjeto.pause();
+            img.src = playIcon;
+            audioActivo = null;
+            btnActivo = null;
+            return;
+        }
+
+        // Si hay otro audio reproduciéndose, pausarlo
+        if (audioObjeto && !audioObjeto.paused) {
+            audioObjeto.pause();
+            if (btnActivo) btnActivo.querySelector('img').src = playIcon;
+        }
+
+        // Crear audio nuevo
+        audioObjeto = new Audio(srcAudio);
+        audioObjeto.play();
+        audioActivo = srcAudio;
+        btnActivo = btn;
+        img.src = pauseIcon;
+
+        audioObjeto.onended = () => {
+            img.src = playIcon;
+            audioActivo = null;
+            btnActivo = null;
+            audioObjeto = null;
+        };
+    });
+});
     });
 }
 
@@ -225,6 +279,7 @@ function abrirModal(id = null) {
 
     const overlay = document.getElementById('modal-overlay');
     const titulo = document.getElementById('modal-titulo');
+    const campoAudio = document.getElementById('campo-audio');
 
     if (id !== null) {
         // Modo editar — precarga los campos
@@ -237,6 +292,8 @@ function abrirModal(id = null) {
         document.getElementById('campo-entrega').value = p.entrega || '';
         document.getElementById('campo-pago').value = p.pago || '';
         document.getElementById('campo-ep').value = p.ep || '';
+        document.getElementById('campo-urgente').checked = p.urgente || false; 
+       
     } else {
         // Modo nuevo — limpia campos
         // titulo.textContent = 'Nueva Rumba';
@@ -247,6 +304,8 @@ function abrirModal(id = null) {
         document.getElementById('campo-entrega').value = '';
         document.getElementById('campo-pago').value = '';
         document.getElementById('campo-ep').value = '';
+        document.getElementById('campo-urgente').checked = false;
+        
     }
 
     overlay.classList.add('active');
@@ -259,6 +318,14 @@ function cerrarModal() {
 }
 
 function guardarProyecto() {
+
+    const archivo = document.getElementById('campo-audio').files[0];
+    let audioTemporal = null;
+
+    if (archivo) {
+        audioTemporal = URL.createObjectURL(archivo);
+    }
+    
     const nombre = document.getElementById('campo-nombre').value.trim();
     if (!nombre) {
         document.getElementById('campo-nombre').focus();
@@ -266,6 +333,11 @@ function guardarProyecto() {
         return;
     }
     document.getElementById('campo-nombre').style.borderColor = '';
+    let audioFinal = audioTemporal;
+    if (idEditando !== null && !audioTemporal) {
+        const pExistente = proyectos.find(p => p.id === idEditando);
+        audioFinal = pExistente ? pExistente.audio : null;
+    }
 
     const datos = {
         nombre,
@@ -275,21 +347,22 @@ function guardarProyecto() {
         entrega: document.getElementById('campo-entrega').value.trim() || '—',
         pago: document.getElementById('campo-pago').value.trim(),
         ep: document.getElementById('campo-ep').value.trim(),
-        urgente: false
+        urgente: document.getElementById('campo-urgente').checked,
+        audio: audioFinal
     };
 
     if (idEditando !== null) {
-        // Actualizar existente
-        const idx = proyectos.findIndex(p => p.id === idEditando);
-        proyectos[idx] = { ...proyectos[idx], ...datos };
-    } else {
-        // Crear nuevo
-        proyectos.unshift({
-            id: nextId++,
-            ...datos,
-            creadoEn: Date.now()
-        });
-    }
+            // Actualizar existente
+            const idx = proyectos.findIndex(p => p.id === idEditando);
+            proyectos[idx] = { ...proyectos[idx], ...datos };
+        } else {
+            // Crear nuevo
+            proyectos.unshift({
+                id: nextId++,
+                ...datos,
+                creadoEn: Date.now()
+            });
+        }
 
     guardarDatos();
     cerrarModal();
@@ -318,7 +391,8 @@ function eliminarProyecto(id) {
     guardarDatos();
     renderFiltrado();
 }
-
+const inputAudio = document.getElementById('campo-audio');
+const nombreArchivo = document.getElementById('nombre-archivo');
 // --- EVENTOS ---
 document.addEventListener('DOMContentLoaded', () => {
     cargarDatos();
@@ -377,4 +451,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cerrarMenu();
         }
     });
+
+   inputAudio.addEventListener('change', () => {
+    if (inputAudio.files.length > 0) {
+        nombreArchivo.textContent = inputAudio.files[0].name;
+    } else {
+        nombreArchivo.textContent = 'Ningún archivo seleccionado';
+    }
+});
+
 });

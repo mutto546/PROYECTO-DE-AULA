@@ -144,73 +144,89 @@
   </section>
 
   <!-- MODAL NUEVO / EDITAR PROYECTO -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title" id="modal-titulo">Creando un proyecto...</span>
-        <button class="modal-close" id="modal-cerrar">✕</button>
-      </div>
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-titulo">Creando un proyecto...</span>
+      <button class="modal-close" id="modal-cerrar">✕</button>
+    </div>
 
+    <div class="modal-field">
+      <label class="modal-label">Nombre de la Rumba</label>
+      <input class="modal-input" id="campo-nombre" type="text" placeholder="Ej: Mix Estelar" />
+    </div>
+
+    <div class="modal-row">
       <div class="modal-field">
-        <label class="modal-label">Nombre de la Rumba</label>
-        <input class="modal-input" id="campo-nombre" type="text" placeholder="Ej: Mix Estelar" />
+        <label class="modal-label">Tipo</label>
+        <select class="modal-select" id="campo-tipo">
+          <option value="Producción">Producción</option>
+          <option value="Mix & Master">Mix & Master</option>
+          <option value="Composición">Composición</option>
+          <option value="Grabación">Grabación</option>
+          <option value="Edición">Edición</option>
+          <option value="Colaboración">Colaboración</option>
+        </select>
       </div>
-
-      <div class="modal-row">
-        <div class="modal-field">
-          <label class="modal-label">Tipo</label>
-          <select class="modal-select" id="campo-tipo">
-            <option value="Producción">Producción</option>
-            <option value="Mix & Master">Mix & Master</option>
-            <option value="Composición">Composición</option>
-            <option value="Grabación">Grabación</option>
-            <option value="Edición">Edición</option>
-            <option value="Colaboración">Colaboración</option>
-          </select>
-        </div>
-        <div class="modal-field">
-          <label class="modal-label">Estado</label>
-          <select class="modal-select" id="campo-estado">
-            <option value="Pendiente">Pendiente</option>
-            <option value="En progreso">En progreso</option>
-            <option value="En revisión">En revisión</option>
-            <option value="Completado">Completado</option>
-            <option value="Archivado">Archivado</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="modal-row">
-        <div class="modal-field">
-          <label class="modal-label">Artista</label>
-          <input class="modal-input" id="campo-artista" type="text" placeholder="Ej: MIZ4R" />
-        </div>
-        <div class="modal-field">
-          <label class="modal-label">Entrega</label>
-          <input class="modal-input" id="campo-entrega" type="text" placeholder="Ej: Viernes" />
-        </div>
-      </div>
-
-      <div class="modal-row">
-        <div class="modal-field">
-          <label class="modal-label">Pago (opcional)</label>
-          <input class="modal-input" id="campo-pago" type="text" placeholder="Ej: $500.000" />
-        </div>
-        <div class="modal-field">
-          <label class="modal-label">EP / Álbum (opcional)</label>
-          <input class="modal-input" id="campo-ep" type="text" placeholder="Ej: EP Mizar" />
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn-cancel" id="btn-cancelar">Cancelar</button>
-        <button class="btn-primary" id="btn-guardar">
-          <span>Guardar proyecto</span>
-        </button>
+      <div class="modal-field">
+        <label class="modal-label">Estado</label>
+        <select class="modal-select" id="campo-estado">
+          <option value="Pendiente">Pendiente</option>
+          <option value="En progreso">En progreso</option>
+          <option value="En revisión">En revisión</option>
+          <option value="Completado">Completado</option>
+          <option value="Archivado">Archivado</option>
+        </select>
       </div>
     </div>
-  </div>
 
+    <div class="modal-row">
+      <div class="modal-field">
+        <label class="modal-label">Artista</label>
+        <input class="modal-input" id="campo-artista" type="text" placeholder="Ej: MIZ4R" />
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Entrega</label>
+        <input class="modal-input" id="campo-entrega" type="text" placeholder="Ej: Viernes" />
+      </div>
+    </div>
+
+    <div class="modal-row">
+      <div class="modal-field">
+        <label class="modal-label">Pago (opcional)</label>
+        <input class="modal-input" id="campo-pago" type="text" placeholder="Ej: $500.000" />
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">EP / Álbum (opcional)</label>
+        <input class="modal-input" id="campo-ep" type="text" placeholder="Ej: EP Mizar" />
+      </div>
+    </div>
+
+    <!-- CHECKBOX URGENTE -->
+    <div class="modal-field">
+      <label class="modal-label">
+        <input type="checkbox" id="campo-urgente">
+        Marcar como urgente
+      </label>
+    </div>
+
+        <div class="modal-field">
+      <label class="modal-label">Importar canción</label>
+      <label class="custom-file-btn">
+        Seleccionar audio
+        <input type="file" id="campo-audio" accept="audio/*">
+      </label>
+      <span id="nombre-archivo" class="file-name">Ningún archivo seleccionado</span>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" id="btn-cancelar">Cancelar</button>
+      <button class="btn-primary" id="btn-guardar">
+        <span>Guardar proyecto</span>
+      </button>
+    </div>
+  </div>
+</div>
   <!-- Menú contextual de fila (editar / eliminar) -->
   <div class="row-menu" id="row-menu">
     <button class="row-menu-item" id="menu-editar">
