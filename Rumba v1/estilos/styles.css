@@ -9,7 +9,7 @@
 
 body{
     background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    background: linear-gradient(to right, #dfdede, #693131);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +47,7 @@ body{
 }
 
 .container button{
-    background-color: #2da0a8;
+    background-color: #a71616;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -133,7 +133,7 @@ body{
 }
 
 .social-icons a{
-    border: 1px solid #ccc;
+    border: 1px solid #690a0a;
     border-radius: 20%;
     display: inline-flex;
     justify-content: center;
@@ -161,9 +161,9 @@ body{
 }
 
 .toggle{
-    background-color: #2da0a8;
+    background-color: #a82d2d;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #2da0a8);
+    background: linear-gradient(to right, #ce0f0f, #0c0f0f);
     color: #fff;
     position: relative;
     left: -100%;
@@ -208,3 +208,4 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
