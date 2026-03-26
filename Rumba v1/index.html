@@ -12,14 +12,7 @@
 </head>
 
 <body>
-  <button onclick="logout()">Cerrar sesión</button>
 
-  <script>
-    function logout() {
-      localStorage.removeItem("usuarioActivo");
-      window.location.href = "login.html";
-    }
-  </script>
   <!-- NAV -->
   <nav class="nav">
     <a href="#" class="nav-logo">
@@ -30,8 +23,10 @@
       <li><a href="#features">Funciones</a></li>
       <li><a href="#states">Flujo</a></li>
     </ul>
-    <a href="login.html" class="nav-cta">Ingresar</a>
+    <!-- <a href="login.html" class="nav-cta">Ingresar</a> -->
+    <a onclick="logout()" class="nav-cta">Cerrar sesión</a>
     <button class="nav-hamburger" aria-label="Menú">&#9776;</button>
+
   </nav>
 
   <!-- HERO -->
@@ -381,13 +376,8 @@
     <p class="footer-copy">© 2026 Rumba - Tu estudio, organizado.</p>
   </footer>
 
-  <script>
-    const usuarioActivo = localStorage.getItem("usuarioActivo");
 
-    if (!usuarioActivo) {
-      window.location.href = "login.html";
-    }
-  </script>
+  <script src="Java/index.js"></script>
 
 </body>
 

@@ -4,9 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" /> -->
+  <!-- No hace falta usar otra libreria que la de Icons8 -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="estilos/styles.css" />
-  <title>Login</title>
+  <title>Rumba</title>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -15,16 +20,25 @@
     <!-- REGISTRO -->
     <div class="form-container sign-up">
       <form>
-        <h1>Crear Cuenta</h1>
+        <img src="logo.png" alt="" class="logo-img">
+        <h1 class="login-header">Crear Cuenta</h1>
 
         <div class="social-icons">
-          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/google-logo.png" alt="Google">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png" alt="Facebook">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+          </a>
         </div>
 
-        <span>usa tu correo electrónico para registrarte</span>
+        <span>Usa tu correo electrónico para registrarte</span>
 
         <input type="text" id="regNombre" placeholder="Nombre" />
         <input type="email" id="regEmail" placeholder="Correo electrónico" />
@@ -37,16 +51,25 @@
     <!-- LOGIN -->
     <div class="form-container sign-in">
       <form>
-        <h1>Iniciar Sesión</h1>
+        <img src="logo.png" alt="" class="logo-img">
+        <h1 class="login-header">Iniciar Sesión</h1>
 
         <div class="social-icons">
-          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/google-logo.png" alt="Google">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png" alt="Facebook">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+          </a>
+          <a href="#" class="icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+          </a>
         </div>
 
-        <span>usa tu correo electrónico y contraseña</span>
+        <span>Usa tu correo electrónico y contraseña</span>
 
         <input type="email" id="logEmail" placeholder="Correo electrónico" />
         <input type="password" id="logPassword" placeholder="Contraseña" />
@@ -62,16 +85,19 @@
       <div class="toggle">
 
         <div class="toggle-panel toggle-left">
-          <h1>¡Bienvenido de nuevo!</h1>
-          <p>Ingresa tus datos personales para usar todas las funciones del sitio</p>
+          <h1>¡Listo para crear!</h1>
+          <p class="text-highlight">Entra y organiza ese caos creativo a los que llamas “proyectos”.</p>
           <button class="hidden" id="login">Iniciar Sesión</button>
         </div>
 
         <div class="toggle-panel toggle-right">
-          <h1>¡Hola, Dj!</h1>
-          <p>
-            Regístrate con tus datos personales para usar todas las funciones del sitio
+          <h1>Tu Rumba</h1>
+          <h1>Tu Cuenta</h1>
+          <h1>Tu Orden</h1>
+          <p class="text-highlight">
+            Tu estudio, organizado.
           </p>
+          <!-- <p class="text-secondary">¿No tienes cuenta? Créala aquí:</p> -->
           <button class="hidden" id="register">Registrarse</button>
         </div>
 
